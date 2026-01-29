@@ -282,14 +282,15 @@ textarea.error-border {
         overflow: hidden;
         background: var(--surface);
         padding: 0 1rem;
-        border-bottom: 2px solid var(--primary);
+        border-bottom: none;
     }
 
-    /* When nav is active */
     nav ul.active {
         max-height: 300px;
         padding: 1rem;
+        border-bottom: 2px solid var(--primary);
     }
+
 }
 
 /* ------------------------------
