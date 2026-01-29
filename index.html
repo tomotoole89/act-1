@@ -17,7 +17,7 @@
         </div>
 
         <nav role="navigation" aria-label="Main navigation">
-            <ul>
+            <ul id="nav-menu" class="nav-menu">
                 <li><a href="#about-me">About Me</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#skills">Skills</a></li>
@@ -39,30 +39,39 @@
     <section id="projects" role="region" aria-labelledby="projects-heading">
         <h2 id="projects-heading">Projects</h2>
 
-        <article role="article">
+        <!-- Filter buttons -->
+        <div class="project-filters">
+            <button onclick="filterProjects('all')">All</button>
+            <button onclick="filterProjects('frontend')">Frontend</button>
+            <button onclick="filterProjects('backend')">Backend</button>
+            <button onclick="filterProjects('fullstack')">Full Stack</button>
+        </div>
+
+        <article role="article" data-category="frontend">
             <h3>Project One</h3>
-            <figure role="group">
-                <img src="placeholder1.jpg" alt="Screenshot of Project One">
+            <figure>
+                <img src="placeholder1.png" alt="Screenshot of Project One" class="lightbox-trigger">
                 <figcaption>A brief description of Project One goes here.</figcaption>
             </figure>
         </article>
 
-        <article role="article">
+        <article role="article" data-category="backend">
             <h3>Project Two</h3>
-            <figure role="group">
-                <img src="placeholder2.jpg" alt="Screenshot of Project Two">
+            <figure>
+                <img src="placeholder2.png" alt="Screenshot of Project Two" class="lightbox-trigger">
                 <figcaption>A short summary of Project Two and what it demonstrates.</figcaption>
             </figure>
         </article>
 
-        <article role="article">
+        <article role="article" data-category="fullstack">
             <h3>Project Three</h3>
-            <figure role="group">
-                <img src="placeholder3.jpg" alt="Screenshot of Project Three">
+            <figure>
+                <img src="placeholder3.png" alt="Screenshot of Project Three" class="lightbox-trigger">
                 <figcaption>Another placeholder description for a future project.</figcaption>
             </figure>
         </article>
     </section>
+
 
     <!-- Skills -->
     <section id="skills" role="region" aria-labelledby="skills-heading">
@@ -82,23 +91,34 @@
     <section id="contact" role="region" aria-labelledby="contact-heading">
         <h2 id="contact-heading">Contact Me</h2>
 
-        <form action="#" method="post" role="form" aria-labelledby="contact-form-title">
+        <form action="#" method="post" role="form" aria-labelledby="contact-form-title" id="contact-form">
             <fieldset>
                 <legend id="contact-form-title">Send me a message</legend>
 
                 <label for="name">Name</label>
                 <input type="text" id="name" name="name" required>
+                <span class="error" id="name-error"></span>
 
                 <label for="email">Email</label>
                 <input type="email" id="email" name="email" required>
+                <span class="error" id="email-error"></span>
 
                 <label for="message">Message</label>
                 <textarea id="message" name="message" rows="5" required></textarea>
+                <span class="error" id="message-error"></span>
 
                 <button type="submit" role="button">Send Message</button>
             </fieldset>
         </form>
+
     </section>
 
+    <!-- Lightbox -->
+<div id="lightbox" class="lightbox" aria-hidden="true">
+    <span class="lightbox-close" role="button" aria-label="Close">&times;</span>
+    <img class="lightbox-image" alt="">
+</div>
+
 </body>
+<script src="script.js"></script>
 </html>
